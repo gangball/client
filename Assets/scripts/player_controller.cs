@@ -45,7 +45,7 @@ public class player_controller : MonoBehaviour {
 			transform.LookAt(new Vector3(transform.position.x + movement.x, transform.position.y, transform.position.z + movement.z));
 		}
 
-		Debug.Log (grounded);
+
 
 		/*
 		Animator stuff
@@ -64,7 +64,7 @@ public class player_controller : MonoBehaviour {
 			else grounded = false;
 		}
 
-		Debug.Log (collision.contacts.Length);
+	
 	}
 
 }
