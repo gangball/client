@@ -48,7 +48,7 @@ public class player_controller : MonoBehaviour {
 		movement = angles * movement.normalized * player_speed;
 
 		if (!grounded) {
-			movement *= 0.2f;
+			movement *= 0.1f;
 		}
 
 		movement.y = rigidbody.velocity.y;
@@ -72,7 +72,7 @@ public class player_controller : MonoBehaviour {
 			mat.staticFriction = Mathf.MoveTowards(mat.staticFriction, 0.5f, 0.05f);
 		}
 
-		Debug.Log (mat.dynamicFriction+" "+collider.material.dynamicFriction);
+
 
 		/*
 		Animator stuff
