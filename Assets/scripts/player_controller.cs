@@ -7,16 +7,25 @@ public class player_controller : MonoBehaviour {
 	public Animator player_animator;
 	public float player_speed;
 	public Vector3 movement;
+	public LayerMask playermask;
+	PhysicMaterial mat;
 	Quaternion angles;
 	bool grounded;
 
 	void Start() {
 		angles = Quaternion.Euler(0,Camera.main.transform.eulerAngles.y, 0);
+		mat = this.collider.material;
 	}
 
 	void Update() {
 			
-		if (grounded) {
+
+
+		if (GroundCheck()) {
+			grounded = true;
+		} 
+		else grounded = false;
+
 			if (Input.GetAxis("Vertical") != 0) {
 				movement.z = Input.GetAxisRaw("Vertical");
 			}
@@ -29,13 +38,18 @@ public class player_controller : MonoBehaviour {
 			else {
 				movement.x = 0;
 			}
-		}
-		else { 
-			movement = Vector3.zero;
-		}
+
+
+
+
+
 
 
 		movement = angles * movement.normalized * player_speed;
+
+		if (!grounded) {
+			movement *= 0.2f;
+		}
 
 		movement.y = rigidbody.velocity.y;
 
@@ -45,7 +59,20 @@ public class player_controller : MonoBehaviour {
 			transform.LookAt(new Vector3(transform.position.x + movement.x, transform.position.y, transform.position.z + movement.z));
 		}
 
+		/*
+		Kostyli
+		*/
 
+		if (movement != Vector3.zero && (mat.dynamicFriction != 0.1f || mat.staticFriction != 0.1f)) {
+			mat.dynamicFriction = Mathf.MoveTowards(mat.dynamicFriction, 0.1f, 0.05f);
+			mat.staticFriction = Mathf.MoveTowards(mat.staticFriction, 0.1f, 0.05f);
+		}
+		else if (mat.dynamicFriction != 0.5f || mat.staticFriction != 0.5f) {
+			mat.dynamicFriction = Mathf.MoveTowards(mat.dynamicFriction, 0.5f, 0.05f);
+			mat.staticFriction = Mathf.MoveTowards(mat.staticFriction, 0.5f, 0.05f);
+		}
+
+		Debug.Log (mat.dynamicFriction+" "+collider.material.dynamicFriction);
 
 		/*
 		Animator stuff
@@ -55,16 +82,14 @@ public class player_controller : MonoBehaviour {
 
 	}
 
-	void OnCollisionStay(Collision collision) {
-		for (int i = 0; i < collision.contacts.Length; i++) {
-			if (collision.contacts[i].normal.y > 0.5f) {
-				grounded = true;
-				return;
-			}
-			else grounded = false;
+	bool GroundCheck() {
+		if (Physics.CheckSphere(transform.position, 0.1f, playermask)) {
+			return true;
 		}
+		else return false;
+	}
 
 	
 	}
 
-}
+
