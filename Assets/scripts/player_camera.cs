@@ -7,14 +7,14 @@ public class player_camera : MonoBehaviour {
 	public Vector3 offset;
 
 
-void Awake() {
-
-		offset = transform.position - follow_object.position;
-
+void Update() {
+	if (follow_object != null) {
+		transform.position = follow_object.position + offset;
+		}
 	}
 
-void Update() {
-
-		transform.position = follow_object.position + offset;
+void Watch(Transform target) {
+		follow_object = target;
+		offset = transform.position - follow_object.position;
 	}
 }

@@ -11,13 +11,21 @@ public class player_controller : MonoBehaviour {
 	PhysicMaterial mat;
 	Quaternion angles;
 	bool grounded;
+	Vector3 pos, last_pos, nextpos;
+	Quaternion rot;
 
 	void Start() {
+		if (networkView.isMine) {
 		angles = Quaternion.Euler(0,Camera.main.transform.eulerAngles.y, 0);
 		mat = this.collider.material;
+		Camera.main.gameObject.SendMessage("Watch", transform, SendMessageOptions.DontRequireReceiver);
+		}
+		else rigidbody.isKinematic = true;
 	}
 
 	void Update() {
+
+		if (networkView.isMine) {
 			
 
 
@@ -72,13 +80,38 @@ public class player_controller : MonoBehaviour {
 			mat.staticFriction = Mathf.MoveTowards(mat.staticFriction, 0.5f, 0.05f);
 		}
 
-
+		}
+		else {
+			if (transform.position != pos) {
+				nextpos = pos + (pos - last_pos);
+				transform.position = Vector3.MoveTowards(transform.position,nextpos, Time.deltaTime*Vector3.Distance(pos, transform.position)*10);
+				last_pos = pos;
+			}
+		}
 
 		/*
 		Animator stuff
 		*/
 
 		player_animator.SetFloat("speed", movement.magnitude);
+
+	}
+
+	void OnSerializeNetworkView(BitStream stream, NetworkMessageInfo info) {
+		if (stream.isWriting) {
+			 pos = transform.position;
+			 rot = transform.rotation;
+			stream.Serialize(ref pos);
+			stream.Serialize(ref rot);
+			stream.Serialize(ref movement);
+		}
+		else {
+			stream.Serialize(ref pos);
+			stream.Serialize(ref rot);
+			stream.Serialize(ref movement);
+			transform.rotation = rot;
+			
+		}
 
 	}
 
