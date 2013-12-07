@@ -80,6 +80,8 @@ public class player_controller : MonoBehaviour {
 			mat.staticFriction = Mathf.MoveTowards(mat.staticFriction, 0.5f, 0.05f);
 		}
 
+		
+
 		}
 		else {
 			if (transform.position != pos) {
