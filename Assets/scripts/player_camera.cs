@@ -16,5 +16,6 @@ void Update() {
 void Watch(Transform target) {
 		follow_object = target;
 		offset = transform.position - follow_object.position;
+		SendMessage("Initialize", SendMessageOptions.RequireReceiver);
 	}
 }

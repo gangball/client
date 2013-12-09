@@ -10,9 +10,11 @@ public class player_controller : MonoBehaviour {
 	public LayerMask playermask;
 	PhysicMaterial mat;
 	Quaternion angles;
-	bool grounded;
+	public bool grounded, carrying;
 	Vector3 pos, last_pos, nextpos;
 	Quaternion rot;
+	GameObject egg;
+	public float throw_delay;
 
 	void Start() {
 		if (networkView.isMine) {
@@ -21,9 +23,18 @@ public class player_controller : MonoBehaviour {
 		Camera.main.gameObject.SendMessage("Watch", transform, SendMessageOptions.DontRequireReceiver);
 		}
 		else rigidbody.isKinematic = true;
+
+		egg = GameObject.FindWithTag("Egg");
+
+		if (Network.isServer) {
+			hot_potato();
+		}
 	}
 
 	void Update() {
+		if (throw_delay < 0.5f) {
+			throw_delay += Time.deltaTime;
+		}
 
 		if (networkView.isMine) {
 			
@@ -124,7 +135,19 @@ public class player_controller : MonoBehaviour {
 		else return false;
 	}
 
-	
+
+	[RPC]
+	void hot_potato() {
+		Debug.Log ("Hot potato");
+		egg.SendMessage("Throw_Egg", transform);
+	}
+
+	[RPC]
+	void Carry(bool value) {
+		carrying = value;
+		throw_delay = 0;
+	}
+
 	}
 
 
