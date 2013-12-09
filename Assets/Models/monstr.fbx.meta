@@ -41,6 +41,12 @@ ModelImporter:
     100070: toe_L_001
     100072: toe_R
     100074: toe_R_001
+    100076: Cone
+    100078: Cube
+    100080: Cube_MeshPart0
+    100082: Cube_MeshPart1
+    100084: Cube_MeshPart2
+    100086: Cube_MeshPart3
     400000: Bone
     400002: Bone_001
     400004: chest
@@ -79,9 +85,32 @@ ModelImporter:
     400070: toe_L_001
     400072: toe_R
     400074: toe_R_001
+    400076: Cone
+    400078: Cube
+    400080: Cube_MeshPart0
+    400082: Cube_MeshPart1
+    400084: Cube_MeshPart2
+    400086: Cube_MeshPart3
+    2300000: Cone
+    2300002: Cube_MeshPart0
+    2300004: Cube_MeshPart1
+    2300006: Cube_MeshPart2
+    2300008: Cube_MeshPart3
+    3300000: Cone
+    3300002: Cube_MeshPart0
+    3300004: Cube_MeshPart1
+    3300006: Cube_MeshPart2
+    3300008: Cube_MeshPart3
     4300000: Plane
+    4300002: Cone
+    4300004: Cube_MeshPart0
+    4300006: Cube_MeshPart1
+    4300008: Cube_MeshPart2
+    4300010: Cube_MeshPart3
     7400000: Default Take
     7400002: run
+    7400004: idle
+    7400006: walk
     9500000: //RootNode
     13700000: Plane
   materials:
@@ -124,6 +153,234 @@ ModelImporter:
       events: []
       transformMask:
       - path: 
+        weight: 1
+      - path: metarig
+        weight: 1
+      - path: metarig/Bone_001
+        weight: 1
+      - path: metarig/Bone_001/heel_L
+        weight: 1
+      - path: metarig/Bone_001/heel_L/foot_L
+        weight: 1
+      - path: metarig/Bone_001/heel_L/foot_L/toe_L
+        weight: 1
+      - path: metarig/Bone_001/heel_L_001
+        weight: 1
+      - path: metarig/Bone_001/heel_L_001/foot_L_001
+        weight: 1
+      - path: metarig/Bone_001/heel_L_001/foot_L_001/toe_L_001
+        weight: 1
+      - path: metarig/Bone_001/heel_R
+        weight: 1
+      - path: metarig/Bone_001/heel_R/foot_R
+        weight: 1
+      - path: metarig/Bone_001/heel_R/foot_R/toe_R
+        weight: 1
+      - path: metarig/Bone_001/heel_R_001
+        weight: 1
+      - path: metarig/Bone_001/heel_R_001/foot_R_001
+        weight: 1
+      - path: metarig/Bone_001/heel_R_001/foot_R_001/toe_R_001
+        weight: 1
+      - path: metarig/Bone_001/hips
+        weight: 1
+      - path: metarig/Bone_001/hips/spine
+        weight: 1
+      - path: metarig/Bone_001/hips/spine/chest
+        weight: 1
+      - path: metarig/Bone_001/hips/spine/chest/neck
+        weight: 1
+      - path: metarig/Bone_001/hips/spine/chest/neck/head
+        weight: 1
+      - path: metarig/Bone_001/hips/spine/chest/neck/head/Bone
+        weight: 1
+      - path: metarig/Bone_001/hips/spine/chest/shoulder_L
+        weight: 1
+      - path: metarig/Bone_001/hips/spine/chest/shoulder_L/thigh_L_001
+        weight: 1
+      - path: metarig/Bone_001/hips/spine/chest/shoulder_L/thigh_L_001/shin_L_003
+        weight: 1
+      - path: metarig/Bone_001/hips/spine/chest/shoulder_R
+        weight: 1
+      - path: metarig/Bone_001/hips/spine/chest/shoulder_R/thigh_R
+        weight: 1
+      - path: metarig/Bone_001/hips/spine/chest/shoulder_R/thigh_R/shin_R
+        weight: 1
+      - path: metarig/Bone_001/hips/thigh_L
+        weight: 1
+      - path: metarig/Bone_001/hips/thigh_L/shin_L
+        weight: 1
+      - path: metarig/Bone_001/hips/thigh_L/shin_L/shin_L_001
+        weight: 1
+      - path: metarig/Bone_001/hips/thigh_R_001
+        weight: 1
+      - path: metarig/Bone_001/hips/thigh_R_001/shin_R_001
+        weight: 1
+      - path: metarig/Bone_001/hips/thigh_R_001/shin_R_001/shin_R_002
+        weight: 1
+      - path: metarig/Bone_001/knee-L
+        weight: 1
+      - path: metarig/Bone_001/knee-R
+        weight: 1
+      - path: metarig/Bone_001/lokot_L
+        weight: 1
+      - path: metarig/Bone_001/lokot_R
+        weight: 1
+      - path: Plane
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: idle
+      takeName: idle
+      firstFrame: -1
+      lastFrame: 71
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Cone
+        weight: 1
+      - path: Cube
+        weight: 1
+      - path: Cube/Cube_MeshPart0
+        weight: 1
+      - path: Cube/Cube_MeshPart1
+        weight: 1
+      - path: Cube/Cube_MeshPart2
+        weight: 1
+      - path: Cube/Cube_MeshPart3
+        weight: 1
+      - path: metarig
+        weight: 1
+      - path: metarig/Bone_001
+        weight: 1
+      - path: metarig/Bone_001/heel_L
+        weight: 1
+      - path: metarig/Bone_001/heel_L/foot_L
+        weight: 1
+      - path: metarig/Bone_001/heel_L/foot_L/toe_L
+        weight: 1
+      - path: metarig/Bone_001/heel_L_001
+        weight: 1
+      - path: metarig/Bone_001/heel_L_001/foot_L_001
+        weight: 1
+      - path: metarig/Bone_001/heel_L_001/foot_L_001/toe_L_001
+        weight: 1
+      - path: metarig/Bone_001/heel_R
+        weight: 1
+      - path: metarig/Bone_001/heel_R/foot_R
+        weight: 1
+      - path: metarig/Bone_001/heel_R/foot_R/toe_R
+        weight: 1
+      - path: metarig/Bone_001/heel_R_001
+        weight: 1
+      - path: metarig/Bone_001/heel_R_001/foot_R_001
+        weight: 1
+      - path: metarig/Bone_001/heel_R_001/foot_R_001/toe_R_001
+        weight: 1
+      - path: metarig/Bone_001/hips
+        weight: 1
+      - path: metarig/Bone_001/hips/spine
+        weight: 1
+      - path: metarig/Bone_001/hips/spine/chest
+        weight: 1
+      - path: metarig/Bone_001/hips/spine/chest/neck
+        weight: 1
+      - path: metarig/Bone_001/hips/spine/chest/neck/head
+        weight: 1
+      - path: metarig/Bone_001/hips/spine/chest/neck/head/Bone
+        weight: 1
+      - path: metarig/Bone_001/hips/spine/chest/shoulder_L
+        weight: 1
+      - path: metarig/Bone_001/hips/spine/chest/shoulder_L/thigh_L_001
+        weight: 1
+      - path: metarig/Bone_001/hips/spine/chest/shoulder_L/thigh_L_001/shin_L_003
+        weight: 1
+      - path: metarig/Bone_001/hips/spine/chest/shoulder_R
+        weight: 1
+      - path: metarig/Bone_001/hips/spine/chest/shoulder_R/thigh_R
+        weight: 1
+      - path: metarig/Bone_001/hips/spine/chest/shoulder_R/thigh_R/shin_R
+        weight: 1
+      - path: metarig/Bone_001/hips/thigh_L
+        weight: 1
+      - path: metarig/Bone_001/hips/thigh_L/shin_L
+        weight: 1
+      - path: metarig/Bone_001/hips/thigh_L/shin_L/shin_L_001
+        weight: 1
+      - path: metarig/Bone_001/hips/thigh_R_001
+        weight: 1
+      - path: metarig/Bone_001/hips/thigh_R_001/shin_R_001
+        weight: 1
+      - path: metarig/Bone_001/hips/thigh_R_001/shin_R_001/shin_R_002
+        weight: 1
+      - path: metarig/Bone_001/knee-L
+        weight: 1
+      - path: metarig/Bone_001/knee-R
+        weight: 1
+      - path: metarig/Bone_001/lokot_L
+        weight: 1
+      - path: metarig/Bone_001/lokot_R
+        weight: 1
+      - path: Plane
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: walk
+      takeName: walk
+      firstFrame: -1
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Cone
+        weight: 1
+      - path: Cube
+        weight: 1
+      - path: Cube/Cube_MeshPart0
+        weight: 1
+      - path: Cube/Cube_MeshPart1
+        weight: 1
+      - path: Cube/Cube_MeshPart2
+        weight: 1
+      - path: Cube/Cube_MeshPart3
         weight: 1
       - path: metarig
         weight: 1
